@@ -20,14 +20,9 @@ $RECYCLE.BIN/
 # private test project.
 BuckarooSdk.Tests
 
-# Debug builds
-BuckarooSdk/bin/Debug
-BuckarooSdk/obj/Debug
 
-
-# Release builds
-BuckarooSdk/bin/Release
-BuckarooSdk/obj/Release
+bin/
+obj/
 
 # build packages
 packages
@@ -63,4 +58,4 @@ Temporary Items
 *.suo
 *.vssscc
 *.cache
-/.vs/BuckarooSdk/v15/Server/sqlite3
+.vs
