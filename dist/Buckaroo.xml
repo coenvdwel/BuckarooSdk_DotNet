@@ -1,0 +1,3187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Buckaroo</name>
+    </assembly>
+    <members>
+        <member name="T:Buckaroo.AuthenticatedRequest">
+            <summary>
+            An authenticatedRequest is a request where authentication properties are 
+            defined and validated upon type.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.AuthenticatedRequest.TransactionRequest">
+            <summary>
+            States that the request that will be performed is a transaction request.
+            </summary>
+            <returns> A CancelTransaction</returns>
+        </member>
+        <member name="M:Buckaroo.AuthenticatedRequest.DataRequest">
+            <summary>
+            States that the request that will be performed is a data request.
+            </summary>
+            <returns> A Data object </returns>
+        </member>
+        <member name="T:Buckaroo.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Request.WebsiteKey">
+            <summary>
+            The website key of the website that the request belongs to
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Request.ApiKey">
+            <summary>
+            The api key
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Request.IsLive">
+            <summary>
+            A boolean that states wether the request is for live or test purposes
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Request.Channel">
+            <summary>
+            The channel of the request. The options that can be used are specified in a channel enumeration. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Request.Culture">
+            <summary>
+            The request culture.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.Request.Authenticate(System.String,System.String,System.Boolean,System.Globalization.CultureInfo,Buckaroo.ChannelEnum)">
+            <summary>
+            This method sets the properties within the request that are necessary 
+            for authentication of the request.
+            </summary>
+            <param name="websiteKey"></param>
+            <param name="apiKey"></param>
+            <param name="isLive"></param>
+            <returns> An AuthenticatedRequest</returns>
+        </member>
+        <member name="F:Buckaroo.Settings.GatewaySettings.TransactionRequestEndPoint">
+            <summary>
+            Main endpoints
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Settings.GatewaySettings.SpecificationsEndpoint">
+            <summary>
+            Additional endpoints
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AdditionalParameter">
+            <summary>
+            An additional parameter is a name value pair that can be used to add custom data
+            to a request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AdditionalParameter.Name">
+            <summary>
+            The name of the parameter.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AdditionalParameter.Value">
+            <summary>
+            The value of the parameter.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AdditionalParameters">
+            <summary>
+            A class that holds a list of additional parameters. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AdditionalParameters.AdditionalParameter">
+            <summary>
+            A list of additional parameters.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.AdditionalParameters.#ctor">
+            <summary>
+            primary constructor. A new list of additional parameters is instantiated.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ChannelEnum">
+            <summary>
+            Enum with all channels from which transactions can be initiated.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.Web">
+            <summary>
+            The web channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.PointOfSale">
+            <summary>
+            The POS channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.BatchFile">
+            <summary>
+            The batch file channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.Employee">
+            <summary>
+            the Employee channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.CallCenter">
+            <summary>
+            The callcenter channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.Bss">
+            <summary>
+            The BSS channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.BackOffice">
+            <summary>
+            The Buckaroo backoffice channel.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ChannelEnum.InternalCheckout">
+            <summary>
+            The internal checkout channel.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ContinueOnIncomplete">
+            <summary>
+            Enum with options for the continue on incomplete.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ContinueOnIncomplete.No">
+            <summary>
+            do not continue on incomplete.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ContinueOnIncomplete.RedirectToHTML">
+            <summary>
+            Redirect to HTML page on incpmplete.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.CustomParameter">
+            <summary>
+            A custom parameter is a name value pair that can be used to add custom data
+            to a request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameter.Name">
+            <summary>
+            The name of the parameter.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameter.Value">
+            <summary>
+            The value of the parameter.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.CustomParameters">
+            <summary>
+            A class that holds a list of custom parameters. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameters.List">
+            <summary>
+            A list of custom parameters.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.CustomParameters.#ctor">
+            <summary>
+            primary constructor. A new list of custom parameters is instantiated.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.IpAddress">
+            <summary>
+            The IpAddress class contains all properties regarding the host IP address
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IpAddress.Type">
+            <summary>
+            The type of Ip address, also known as the protocol type.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IpAddress.Address">
+            <summary>
+            The actual Ip address
+            </summary>
+        </member>
+        <member name="T:Buckaroo.InternetProtocolVersion">
+            <summary>
+            enum for possible internet protocols
+            </summary>
+        </member>
+        <member name="F:Buckaroo.InternetProtocolVersion.IPv4">
+            <summary>
+            Internet protocol version V4
+            </summary>
+        </member>
+        <member name="F:Buckaroo.InternetProtocolVersion.IPv6">
+            <summary>
+            Internet protocol version V6
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.Street">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.HouseNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.HouseNumberSuffix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.ZipCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.City">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Address.Country">
+            <summary>
+            Country the consumer is located in.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Company.ChamberOfCommerce">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Company.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Company.VatApplicable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Company.VatNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.EmailAddress.Email">
+            <summary>
+            The consumer email address 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Phone.Mobile">
+            <summary>
+            The consumer mobile phonenumber
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Phone.Landline">
+            <summary>
+            The consumer landline phonenumber
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Phone.Fax">
+            <summary>
+            The consumer fax number
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Key">
+            <summary>
+            The transaction key
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Status">
+            <summary>
+            The status of the transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Services">
+            <summary>
+            The list of services that were available for the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.CustomParameters">
+            <summary>
+            The list of custom parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.AdditionalParameters">
+            <summary>
+            The list of additional parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Invoice">
+            <summary>
+            The invoice used in the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.ServiceCode">
+            <summary>
+            The code of the service used for the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.IsTest">
+            <summary>
+            boolean that specifies if the transaction was a test transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Currency">
+            <summary>
+            The currency that 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.AmountDebit">
+            <summary>
+            The debit amount of the requested transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.TransactionType">
+            <summary>
+            The transaction type that was specified in the transaction request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.MutationType">
+            <summary>
+            The mutation type of the transaction request. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.RelatedTransactions">
+            <summary>
+            A list of transactions that are related to the transaction that was requested.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Order">
+            <summary>
+            The order value. This is an alphanumerical value.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.IssuingCountry">
+            <summary>
+            The issuing country of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.StartRecurrent">
+            <summary>
+            Boolean value that specifies wheter the requested transactions initiated a startrecurrent.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.Recurring">
+            <summary>
+            Boolean value that specifies wheter the transaction is a recurring transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.CustomerName">
+            <summary>
+            The number of the customer that the transaction request was meant for.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.PayerHash">
+            <summary>
+            The payer hash value of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequest.PaymentKey">
+            <summary>
+            The key value of the payment.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.DataRequest.#ctor">
+            <summary>
+            Primary constructor.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Push.Key">
+            <summary>
+            The transaction key
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Push.Status">
+            <summary>
+            The status of the transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Push.Services">
+            <summary>
+            The list of services that were available for the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.CustomParameters">
+            <summary>
+            The list of custom parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.AdditionalParameters">
+            <summary>
+            The list of additional parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.Invoice">
+            <summary>
+            The invoice used in the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.ServiceCode">
+            <summary>
+            The code of the service used for the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.IsTest">
+            <summary>
+            boolean that specifies if the transaction was a test transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.Currency">
+            <summary>
+            The currency that 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.AmountDebit">
+            <summary>
+            The debit amount of the requested transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.TransactionType">
+            <summary>
+            The transaction type that was specified in the transaction request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.MutationType">
+            <summary>
+            The mutation type of the transaction request. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.RelatedTransactions">
+            <summary>
+            A list of transactions that are related to the transaction that was requested.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.Order">
+            <summary>
+            The order value. This is an alphanumerical value.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.IssuingCountry">
+            <summary>
+            The issuing country of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.StartRecurrent">
+            <summary>
+            Boolean value that specifies wheter the requested transactions initiated a startrecurrent.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.Recurring">
+            <summary>
+            Boolean value that specifies wheter the transaction is a recurring transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.CustomerName">
+            <summary>
+            The number of the customer that the transaction request was meant for.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.PayerHash">
+            <summary>
+            The payer hash value of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionPush.PaymentKey">
+            <summary>
+            The key value of the payment.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransactionPush.#ctor">
+            <summary>
+            Primary constructor.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.DataBase.AddCustomParameter(System.String,System.String)">
+            <summary>
+            Adds a custom parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.DataBase.AddAdditionalParameter(System.String,System.String)">
+            <summary>
+            Adds an additional parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.AmountDebit">
+            <summary>
+            The debit amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.AmountCredit">
+            <summary>
+            the credit amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.Invoice">
+            <summary>
+            The invoicenumber of the invoice the transaction belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.Order">
+            <summary>
+            The ordernumber of the order the transaction belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.Description">
+            <summary>
+            The description that belongs to the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ClientIp">
+            <summary>
+            The Ip Address of the client, that is sending the request. Needs to be instantiated.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ReturnUrl">
+            <summary>
+            The return url, is the url that the user needs to be redirected to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ReturnUrlCancel">
+            <summary>
+            The return url cancel, is a specific url that the user needs to be redirected to in 
+            case the user cancels the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ReturnUrlError">
+            <summary>
+            The return url error, is a specific url that the user needs to be redirected to in 
+            case the an error occurs during the processing of the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ReturnUrlReject">
+            <summary>
+            The return url reject, is a specific url that the user needs to be redirected to in 
+            case the transaction is rejected by Buckaroo.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.OriginalTransactionKey">
+            <summary>
+            Contains the original transaction key in case there was a previous payment, that is 
+            linked to this payment. e.g. in case of a refund.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.StartRecurrent">
+            <summary>
+            Defines if a transaction should initiate a recurrent transaction. Some services support 
+            recurring payments (You can identify these by determining if they support the action 
+            PayRecurrent). Before being able to do a recurrent payment, a normal payment needs to be 
+            made with this field set to true (the default value for this field is false).
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ContinueOnIncomplete">
+            <summary>
+            Defines a value that states wheter the request should be aborted, or that the user should
+            be redirected in case the request is incomplete.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ServicesSelectableByClient">
+            <summary>
+            If no primary service is provided and ContinueOnIncomplete is set, this list of comma 
+            separated servicescodes can be used to limit the number of services from which the customer 
+            may choose once he is redirected to the payment form. Only services which are entered in 
+            this field are selectable. This field is optional and when empty or missing, the customer 
+            may choose any of the available services
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ServicesExcludedForClient">
+            <summary>
+            If no primary service is provided and ContinueOnIncomplete is set, this list of comma 
+            separated servicescodes can be used to limit the number of services from which the customer 
+            may choose once he is redirected to the payment form. Services which are entered in this field 
+            are not selectable. This field is optional.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.PushUrl">
+            <summary>
+            When provided, this push URL overrides all the push URLs as configured in the payment plaza 
+            under websites for the associated website key.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.PushUrlFailure">
+            <summary>
+            When provided, this push URL overrides the push URL for failed transactions as configured 
+            in the payment plaza under websites for the associated website key.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.ClientUserAgent">
+            <summary>
+            This tag can be used to tell the Payment Engine what the user agent of the client’s 
+            webbrowser is. This can be used for statistical purposes but also to perform anti-fraud checks 
+            on transactions.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.DataRequestBase.OriginalTransactionReference">
+            <summary>
+            Contains the reference to a previously performed transaction. It has a type, as well as the
+            actual reference
+            </summary>
+        </member>
+        <member name="T:Buckaroo.TransactionBase">
+            <summary>
+            The base properties for a transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.Currency">
+            <summary>
+            The currency of the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.AmountDebit">
+            <summary>
+            The debit amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.AmountCredit">
+            <summary>
+            the credit amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.Invoice">
+            <summary>
+            The invoicenumber of the invoice the transaction belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.Order">
+            <summary>
+            The ordernumber of the order the transaction belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.Description">
+            <summary>
+            The description that belongs to the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ClientIp">
+            <summary>
+            The Ip Address of the client, that is sending the request. Needs to be instantiated.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ReturnUrl">
+            <summary>
+            The return url, is the url that the user needs to be redirected to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ReturnUrlCancel">
+            <summary>
+            The return url cancel, is a specific url that the user needs to be redirected to in 
+            case the user cancels the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ReturnUrlError">
+            <summary>
+            The return url error, is a specific url that the user needs to be redirected to in 
+            case the an error occurs during the processing of the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ReturnUrlReject">
+            <summary>
+            The return url reject, is a specific url that the user needs to be redirected to in 
+            case the transaction is rejected by Buckaroo.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.OriginalTransactionKey">
+            <summary>
+            Contains the original transaction key in case there was a previous payment, that is 
+            linked to this payment. e.g. in case of a refund.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.StartRecurrent">
+            <summary>
+            Defines if a transaction should initiate a recurrent transaction. Some services support 
+            recurring payments (You can identify these by determining if they support the action 
+            PayRecurrent). Before being able to do a recurrent payment, a normal payment needs to be 
+            made with this field set to true (the default value for this field is false).
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ContinueOnIncomplete">
+            <summary>
+            Defines a value that states wheter the request should be aborted, or that the user should
+            be redirected in case the request is incomplete.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ServicesSelectableByClient">
+            <summary>
+            If no primary service is provided and ContinueOnIncomplete is set, this list of comma 
+            separated servicescodes can be used to limit the number of services from which the customer 
+            may choose once he is redirected to the payment form. Only services which are entered in 
+            this field are selectable. This field is optional and when empty or missing, the customer 
+            may choose any of the available services
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ServicesExcludedForClient">
+            <summary>
+            If no primary service is provided and ContinueOnIncomplete is set, this list of comma 
+            separated servicescodes can be used to limit the number of services from which the customer 
+            may choose once he is redirected to the payment form. Services which are entered in this field 
+            are not selectable. This field is optional.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.PushUrl">
+            <summary>
+            When provided, this push URL overrides all the push URLs as configured in the payment plaza 
+            under websites for the associated website key.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.PushUrlFailure">
+            <summary>
+            When provided, this push URL overrides the push URL for failed transactions as configured 
+            in the payment plaza under websites for the associated website key.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.ClientUserAgent">
+            <summary>
+            This tag can be used to tell the Payment Engine what the user agent of the client’s 
+            webbrowser is. This can be used for statistical purposes but also to perform anti-fraud checks 
+            on transactions.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.OriginalTransactionReference">
+            <summary>
+            Contains the reference to a previously performed transaction. It has a type, as well as the
+            actual reference
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.CustomParameters">
+            <summary>
+            The parameters that are custom, which means that they can vary in case different services
+            are used. Where the base transaction paremeters are service independent, these
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.AdditionalParameters">
+            <summary>
+            The parameters that are additional to the service, which means that they can vary in case 
+            different service are used. Where the base transaction paremeters are service independent, these
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionBase.Services">
+            <summary>
+            A services property, which then contains a list of Services
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransactionBase.#ctor">
+            <summary>
+            Primary constructor. Al lists are instantiate within this constructor
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransactionBase.AddCustomParameter(System.String,System.String)">
+            <summary>
+            Adds a custom parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.TransactionBase.AddAdditionalParameter(System.String,System.String)">
+            <summary>
+            Adds an additional parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.RequestTransactionStatus.CustomParameters">
+            <summary>
+            The parameters that are custom, which means that they can vary in case different services
+            are used. Where the base transaction paremeters are service independent, these
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestTransactionStatus.AdditionalParameters">
+            <summary>
+            The parameters that are additional to the service, which means that they can vary in case 
+            different service are used. Where the base transaction paremeters are service independent, these
+            </summary>
+        </member>
+        <member name="M:Buckaroo.RequestTransactionStatus.AddCustomParameter(System.String,System.String)">
+            <summary>
+            Adds a custom parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.RequestTransactionStatus.AddAdditionalParameter(System.String,System.String)">
+            <summary>
+            Adds an additional parameter to the transactionbase. requires a parameter key and a parameter value.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.ConsumerMessage">
+            <summary>
+            The date corresponding with the consumer message within the response
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ConsumerMessage.MustRead">
+            <summary>
+            boolean that specifies if the message is must read
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ConsumerMessage.CultureName">
+            <summary>
+            The name of the culture that needs to be used for the message
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ConsumerMessage.Title">
+            <summary>
+            The title of the message
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ConsumerMessage.PlainText">
+            <summary>
+            the text that is used for the message
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ConsumerMessage.HtmlText">
+            <summary>
+            the html text that is used for the message.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.DataType">
+            <summary>
+            Enum that is used for the typing of response parameters.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.String">
+            <summary>
+            String data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.Integer">
+            <summary>
+            Integer data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.Decimal">
+            <summary>
+            Decimal data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.Date">
+            <summary>
+            Date data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.Datetime">
+            <summary>
+            Date time data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.Boolean">
+            <summary>
+            Boolean data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.CardNumber">
+            <summary>
+            Cardnumber data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.ExpiryDate">
+            <summary>
+            ExiryDate data type
+            </summary>
+        </member>
+        <member name="F:Buckaroo.DataType.CardStartDate">
+            <summary>
+            CardStart data type
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ActionError">
+            <summary>
+            An error regarding an action related problem.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ActionError.Service">
+            <summary>
+            Service used when the error occured.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ActionError.Name">
+            <summary>
+            The name of the error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ActionError.Error">
+            <summary>
+            The actual error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ActionError.ErrorMessage">
+            <summary>
+            The message containing details of the error.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ChannelError">
+            <summary>
+            An error regarding a channel related problem.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ChannelError.Service">
+            <summary>
+            Service used when the error occured.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ChannelError.Action">
+            <summary>
+            The action that was performed when the error occured.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ChannelError.Name">
+            <summary>
+            The name of the error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ChannelError.Error">
+            <summary>
+            The actual error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ChannelError.ErrorMessage">
+            <summary>
+            The message containing details of the error.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.CustomParameterError">
+            <summary>
+            An error regarding a custom parameter related problem.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameterError.Name">
+            <summary>
+            The name of the error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameterError.Error">
+            <summary>
+            The actual error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CustomParameterError.ErrorMessage">
+            <summary>
+            The message containing details of the error.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ParameterError">
+            <summary>
+            An error regarding a parameter related problem.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ParameterError.Service">
+            <summary>
+            Service used when the error occured.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ParameterError.Action">
+            <summary>
+            The action that was performed when the error occured.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ParameterError.Name">
+            <summary>
+            The name of the error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ParameterError.Error">
+            <summary>
+            The actual error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ParameterError.ErrorMessage">
+            <summary>
+            The message containing details of the error.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.RequestErrors">
+            <summary>
+            All errors regarding the request. All errors are ordered by category. 
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequestErrors.ChannelErrors">
+            <summary>
+            A list of channel related errors
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequestErrors.ServiceErrors">
+            <summary>
+            A list of service related errors
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequestErrors.ActionErrors">
+            <summary>
+            A list of action related errors
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequestErrors.ParameterErrors">
+            <summary>
+            A list of parameter related errors
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequestErrors.CustomParameterErrors">
+            <summary>
+            A list of custom parameter related errors
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ServiceError">
+            <summary>
+            An error regarding a service related problem.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceError.Name">
+            <summary>
+            The name of the error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceError.Error">
+            <summary>
+            The actual error.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceError.ErrorMessage">
+            <summary>
+            The message containing details of the error.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.MutationType">
+            <summary>
+            Enum within options for the mutationtype. The mutationtype specifies the financial impact.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MutationType.NotSet">
+            <summary>
+            CancelTransaction mutation type not specified
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MutationType.Collecting">
+            <summary>
+            CancelTransaction mutation type is collecting, which means that Buckaroo 
+            collects the funds of the transaction
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MutationType.Processing">
+            <summary>
+            CancelTransaction mutation type is processing, which means that Buckaroo
+            does not collect the funds. The funds will be collected and paid out
+            by a third party
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MutationType.Informational">
+            <summary>
+            CancelTransaction mutation type is informational, which means that this
+            transactions has no financial consequenses directly. 
+            </summary>
+        </member>
+        <member name="T:Buckaroo.PayRemainderDetails">
+            <summary>
+            Data corresponding to the payremainder details.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayRemainderDetails.RemainderAmount">
+            <summary>
+            the remaining amount set for the remainder
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayRemainderDetails.Currency">
+            <summary>
+            The currency of the payment remainder
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayRemainderDetails.GroupTransaction">
+            <summary>
+            The grouptransaction of the payremainder
+            </summary>
+        </member>
+        <member name="T:Buckaroo.RelatedTransaction">
+            <summary>
+            A previously performed transaction that is related to the transaction that has to be performed now.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RelatedTransaction.RelationType">
+            <summary>
+            The type of relation that the 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RelatedTransaction.RelatedTransactionKey">
+            <summary>
+            The transaction key of the related transaction
+            </summary>
+        </member>
+        <member name="T:Buckaroo.RequestInformationParameter">
+            <summary>
+            All data corresponding for a request information parameter
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestInformationParameter.Name">
+            <summary>
+            The name of the request information parameter
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestInformationParameter.DataType">
+            <summary>
+            The data type of the parameter
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestInformationParameter.MaxLength">
+            <summary>
+            the maximum length of the parameter
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestInformationParameter.Required">
+            <summary>
+            Specifies whether the parameter is required for the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestInformationParameter.Description">
+            <summary>
+            The description of the parameter.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.RequestResponse">
+            <summary>
+            The response message after a transaction is sent. It can be used to verify whether a transaction 
+            has been send, received, and processed properly. If something went wrong, it can also be read from
+            the response.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.BuckarooSdkLogger">
+            <summary>
+            The BuckarooLogger is set on the response object in order to make it easy for the user to retrieve the logging.
+            The users system does not need to worry about setting the Logger, because it is set by the request, after it
+            is performed.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Key">
+            <summary>
+            The transaction key
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Status">
+            <summary>
+            The status of the transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.RequiredAction">
+            <summary>
+            The required action
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Services">
+            <summary>
+            The list of services that were available for the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.CustomParameters">
+            <summary>
+            The list of custom parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.AdditionalParameters">
+            <summary>
+            The list of additional parameters that was sent with the transaction request
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.RequestErrors">
+            <summary>
+            An overcoupling error overview with list of all errors per error type.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Invoice">
+            <summary>
+            The invoice used in the request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.ServiceCode">
+            <summary>
+            The code of the service used for the transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.IsTest">
+            <summary>
+            boolean that specifies if the transaction was a test transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Currency">
+            <summary>
+            The currency that 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.AmountDebit">
+            <summary>
+            The debit amount of the requested transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.TransactionType">
+            <summary>
+            The transaction type that was specified in the transaction request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.MutationType">
+            <summary>
+            The mutation type of the transaction request. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.RelatedTransactions">
+            <summary>
+            A list of transactions that are related to the transaction that was requested.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.ConsumerMessage">
+            <summary>
+            The consumer message
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Order">
+            <summary>
+            The order value. This is an alphanumerical value.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.IssuingCountry">
+            <summary>
+            The issuing country of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.StartRecurrent">
+            <summary>
+            Boolean value that specifies wheter the requested transactions initiated a startrecurrent.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.Recurring">
+            <summary>
+            Boolean value that specifies wheter the transaction is a recurring transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.CustomerName">
+            <summary>
+            The number of the customer that the transaction request was meant for.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.PayerHash">
+            <summary>
+            The payer hash value of the requested transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequestResponse.PaymentKey">
+            <summary>
+            The key value of the payment.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.RequestResponse.#ctor">
+            <summary>
+            Primary constructor.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.RequestResponse.GetActionResponse``1">
+            <summary>
+            Returns the typed reponse for a specific action from the request. In case multiple services were used within one request, 
+            this method provides the response voor a certain action (e.g. response.GetActionResponse<IdealPayResponse/>();)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.RequiredAction">
+            <summary>
+            The data corresponding to the required actions within the reponse.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequiredAction.Type">
+            <summary>
+            The type of the required action
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequiredAction.Name">
+            <summary>
+            The name of the required action. This name is similar to the name of the type.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequiredAction.RedirectURL">
+            <summary>
+            The URL used to redirect the customer to, in case the action is redirect.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequiredAction.RequestedInformation">
+            <summary>
+            The list of request information parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.RequiredAction.PayRemainderDetails">
+            <summary>
+            An overview of the details belonging to the payremainders
+            </summary>
+        </member>
+        <member name="T:Buckaroo.RequiredActionType">
+            <summary>
+            The action types of the required actions
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequiredActionType.Redirect">
+            <summary>
+            The redirect option 
+            </summary>
+        </member>
+        <member name="F:Buckaroo.RequiredActionType.PayRemainder">
+            <summary>
+            The payremainder option
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ResponseParameter">
+            <summary>
+            The reponse parameter specifies the name and value of each response.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ResponseParameter.Name">
+            <summary>
+            The name of the response parameter.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ResponseParameter.Value">
+            <summary>
+            The value of the response parameter.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.ServiceResponse">
+            <summary>
+            Service class used for data handling the service part of the resonse.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceResponse.VersionAsProperty">
+            <summary>
+            The version of the service
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceResponse.Name">
+            <summary>
+            The name of the service that the response belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceResponse.Action">
+            <summary>
+            The name of the action that the response belongs to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.ServiceResponse.Parameters">
+            <summary>
+            The list of response parameters.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.Status">
+            <summary>
+            The overcoupling class of the current status that is returned in the response, 
+            belonging to the transaction request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Status.Code">
+            <summary>
+            The actual code of the status
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Status.SubCode">
+            <summary>
+            The statussubcode of the status
+            </summary>
+        </member>
+        <member name="P:Buckaroo.Status.DateTime">
+            <summary>
+            The datetime stamp that states when the status was set.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.Status.#ctor">
+            <summary>
+            primary status constructor
+            </summary>
+        </member>
+        <member name="T:Buckaroo.StatusCode">
+            <summary>
+            Statussubcode class provides a code and description of the current status.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.StatusCode.Code">
+            <summary>
+            The code corresponding to the current status.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.StatusCode.Description">
+            <summary>
+            The description corresponding to the current statuscode.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.StatusSubCode">
+            <summary>
+            Statussubcode class provides a code and description of the current substatus.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.StatusSubCode.Code">
+            <summary>
+            The code corresponding to the current substatus.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.StatusSubCode.Description">
+            <summary>
+            The description corresponding to the current statuscode.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.TransactionReference">
+            <summary>
+            A transaction reference is used to give within a transaction to give a reference towards
+            previously performed transaction.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionReference.Type">
+            <summary>
+            The type of the original transaction
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionReference.Reference">
+            <summary>
+            The actual reference of the original transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.ConfiguredDataRequest.#ctor(Buckaroo.Data)">
+            <summary>
+            ConfiguredDataRequest primary constructor.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Buckaroo.ConfiguredServiceDataRequest.Execute">
+            <summary>
+            Execute the request, a post to the Buckaroo Payment Engine is prepared and send.
+            </summary>
+            <returns>General DataResponse object is returned</returns>
+        </member>
+        <member name="T:Buckaroo.Data">
+            <summary>
+            General data class, to hold a Request object and a list of services
+            </summary>
+        </member>
+        <member name="M:Buckaroo.Data.AddService(System.String,System.Collections.Generic.List{Buckaroo.RequestParameter},System.String,System.String)">
+            <summary>
+            Adding a service to the datarequest.
+            </summary>
+            <param name="serviceName">The name of the service</param>
+            <param name="parameters">The list of service parameters</param>
+        </member>
+        <member name="T:Buckaroo.ILogger">
+            <summary>
+            Logging interface used by the Buckaroo SDK. The SDK provides one implementation of this interface. If functionality is
+            required that is not supported by this implementation, a custom logger can be made and used, as long
+            as the custom logger implements this interface.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.SdkClient">
+            <summary>
+            
+            MIT License
+            
+            Copyright (c) 2018 Buckaroo - Sjaak Roos
+            (fork by New Black BV)
+            
+            </summary>
+        </member>
+        <member name="M:Buckaroo.SdkClient.#ctor">
+            <summary>
+            Default constructor. The standard logger will be used by this instance, if none is provided when creating a request.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.SdkClient.#ctor(System.Func{Buckaroo.ILogger})">
+            <summary>
+            Constructor where a custom logger factory can be set, for creating custom implemented loggers.
+            </summary>
+            <param name="loggerFactory">A locally stored function, e.g. () => new CustomImplementationLogger() </param>
+        </member>
+        <member name="M:Buckaroo.SdkClient.CreateRequest">
+            <summary>
+            Create request function that returns a new request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SdkClient.CreateRequest(Buckaroo.ILogger)">
+            <summary>
+            Create request function that returns a new request. A ILogger implementations can be provided. If omitted, the Logger
+            instance will be provided by the LoggerFactory.
+            </summary>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SdkClient.CreateRequest(Buckaroo.StandardLogger)">
+            <summary>
+            Create request function that returns a new request. A StandardLogger implementations can be provided. If omitted, the Logger
+            instance will be provided by the LoggerFactory.
+            </summary>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SdkClient.CreateRequest(Buckaroo.ExtensiveLogger)">
+            <summary>
+            Create request function that returns a new request. A ExtensiveLogger implementations can be provided. If omitted, the Logger
+            instance will be provided by the LoggerFactory.
+            </summary>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SdkClient.GetPushHandler">
+            <summary>
+            Returns a Buckaroo push handler, that can be used to process push messages.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.AfterPayCaptureRequest">
+            <summary>
+            A AfterPay Capture Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AfterPayPayRecurrentRequest">
+            <summary>
+            A AfterPay PayRecurrent Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AfterPayRefundRequest">
+            <summary>
+            A AfterPay Refund Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AfterPayRefundResponsen">
+            <summary>
+            A AfterPay Refund Response does not have response parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AfterPayTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.AfterPayTransaction.Pay(Buckaroo.AfterPayPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with a AfterPayPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A AfterPayPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="F:Buckaroo.ShippingMethod.SameDay">
+            <summary>
+            Delivery on the same day
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ShippingMethod.Unknown">
+            <summary>
+            Delivery method not specified
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ShippingMethod.Priority">
+            <summary>
+            Priority delivery of 2 or 3 days
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ShippingMethod.Ground4OrMoreDays">
+            <summary>
+            Ground delivery for 4 or more days
+            </summary>
+        </member>
+        <member name="F:Buckaroo.ShippingMethod.ElectronicDelivery">
+            <summary>
+            Delivery is done electronically
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.VerifyAddress">
+            <summary>
+            Boolean that states if the address of the custumer has been verified.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.CustomerIpAddress">
+            <summary>
+            IP address of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingMethodCode">
+            <summary>
+            The method that is used for shipping. Amex has standards for this value.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.Recurring">
+            <summary>
+            States if the payment is a recurring payment.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.CustomerHttpBrowserType">
+            <summary>
+            Browser type used by the customer. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.CustomerHostServerName">
+            <summary>
+            Host server name used by the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.RecurringTimeType">
+            <summary>
+            If the payment is a recurrent payment. It can be defined here in what sequence.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingFirstName">
+            <summary>
+            The first name stated on the shipping label
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingLastName">
+            <summary>
+            The last name stated on the shipping label
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingStreet">
+            <summary>
+            The street where the product is shipped to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingHouseNumber">
+            <summary>
+            The number of the residence where the product is shipped to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingPostalCode">
+            <summary>
+            The postal code of the residence where the product is shipped to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingCountryCode">
+            <summary>
+            The country code of the country where the product is shipped to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.ShippingPhoneNumber">
+            <summary>
+            The phone number stated on the shipping information.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.CustomerEmail">
+            <summary>
+            The customer's email address
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingFirstName">
+            <summary>
+            The first name of customer, as stated on the invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingStreet">
+            <summary>
+            The street of the residence where the invoice is send to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingHouseNumber">
+            <summary>
+            The housenumber of the residence where the invoice is send to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingHouseNumberSuffix">
+            <summary>
+            The housenumber suffix of the residence where the invoice is send to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingPostalCode">
+            <summary>
+            The postal code of the residence where the invoice is send to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeRequest.BillingPhoneNumber">
+            <summary>
+            The phone number as it is stated on the invoice
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeResponse.CardExpirationDate">
+            <summary>
+            The expiration date of the card that is used by the consumer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressAuthorizeResponse.CardNumberEnding">
+            <summary>
+            The end numbers of the card dat is used by the consumer.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AmericanExpressPayRecurrentRequest">
+            <summary>
+            An American Express payrecurrent does not have request parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRecurrentResponse.CardExpirationDate">
+            <summary>
+            The expiration date of the card that is used by the consumer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRecurrentResponse.CardNumberEnding">
+            <summary>
+            The end numbers of the card dat is used by the consumer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.VerifyAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.CustomerIpAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingMethodCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.Recurring">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.CustomerHttpBrowserType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.CustomerHostServerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.RecurringTimeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.RecurringInterval">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingFirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingLastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingStreet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingHouseNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingPostalCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingCountryCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.ShippingPhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.CustomerEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingFirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingStreet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingHouseNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingHouseNumberSuffix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingPostalCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderRequest.BillingPhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderResponse.CardExpirationDate">
+            <summary>
+            The expiration date of the card that is used by the consumer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRemainderResponse.CardNumberEnding">
+            <summary>
+            The end numbers of the card dat is used by the consumer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.VerifyAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.CustomerIpAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingMethodCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.Recurring">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.CustomerHttpBrowserType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.CustomerHostServerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.RecurringTimeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.RecurringInterval">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingFirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingLastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingStreet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingHouseNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingPostalCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingCountryCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.ShippingPhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.CustomerEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingFirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingStreet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingHouseNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingHouseNumberSuffix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingPostalCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayRequest.BillingPhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayResponse.CardExpirationDate">
+            <summary>
+            The expiration date of the card that is used by the consumer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressPayResponse.CardNumberEnding">
+            <summary>
+            The end numbers of the card dat is used by the consumer.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AmericanExpressRefundRequest">
+            <summary>
+            An American Express refund does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.AmericanExpressRefundResponse">
+            <summary>
+            An American Express refund does not have response parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.AmericanExpressTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.AmericanExpressTransaction.Pay(Buckaroo.AmericanExpressPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an IdealPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.AmericanExpressTransaction.Refund(Buckaroo.AmericanExpressRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an IdealRefundRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.AmericanExpressTransaction.Authorize(Buckaroo.AmericanExpressAuthorizeRequest)">
+            <summary>
+            The pay remainder function creates a configured transaction with an IdealPayRemainderRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRemainderRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.AmericanExpressTransaction.PayRecurrent(Buckaroo.AmericanExpressPayRecurrentRequest)">
+            <summary>
+            The pay remainder function creates a configured transaction with an IdealPayRemainderRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRemainderRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.AmericanExpressTransaction.PayRemainder(Buckaroo.AmericanExpressPayRemainderRequest)">
+            <summary>
+            The pay remainder function creates a configured transaction with an IdealPayRemainderRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRemainderRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.BancontactPayRequest">
+            <summary>
+            A Bancontact PayRequest does not have reponse parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.BancontactPayResponse">
+            <summary>
+            A Bancontact PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.BancontactRefundRequest">
+            <summary>
+            A Bancontact RefundRequest does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.BancontactRefundResponse">
+            <summary>
+            A Bancontact RefundResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.BancontactTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.BancontactTransaction.Pay(Buckaroo.BancontactPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an BancontactPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A BancontactPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.BancontactTransaction.Refund(Buckaroo.BancontactRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an BancontactRefundRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A BancontactRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="F:Buckaroo.CustomerType.Unknown">
+            <summary>
+            The gender is unknown.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.CustomerType.Private">
+            <summary>
+            The gender is male.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.CustomerType.Company">
+            <summary>
+            The gender is female.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MaxReminderLevel.NoReminders">
+            <summary>
+            No reminders will be send to the consumer
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MaxReminderLevel.SingleReminder">
+            <summary>
+            One reminder email will be send to the consumer
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MaxReminderLevel.DoubleReminder">
+            <summary>
+            Two reminder emails will be send to the consumer
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MaxReminderLevel.TripleReminder">
+            <summary>
+            Three reminder emails will be send to the consumer
+            </summary>
+        </member>
+        <member name="F:Buckaroo.MaxReminderLevel.TripleReminderWithTransferToCollectionAgency">
+            <summary>
+            Three reminder emails will be send to the consumer. After that, if the invoice 
+            still isn't paid by the consumer, it will be send to a collecting agency.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Code">
+            <summary>
+            The code of the invoice.
+            </summary>W
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Debtor">
+            <summary>
+            The debtor parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Person">
+            <summary>
+            The Person parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Address">
+            <summary>
+            The Person parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Email">
+            <summary>
+            The Email parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementAddOrUpdateDebtorRequest.Phone">
+            <summary>
+            The Phone parameter group.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.CreditManagementAddOrUpdateDebtorResponse">
+            <summary>
+            For this data request type are no response parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateCreditNoteRequest.InvoiceDate">
+            <summary>
+            The date as stated on the invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateCreditNoteRequest.OriginalInvoiceNumber">
+            <summary>
+            The invoice number as stated on the original invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateCreditNoteRequest.SendCreditNoteMessage">
+            <summary>
+            Message that is send with the credit note.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateCreditNoteRequest.InvoiceAmount">
+            <summary>
+            the amount of the credit note invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateCreditNoteRequest.InvoiceAmountVat">
+            <summary>
+            the VAt amount of the credit note invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.InvoiceAmountVat">
+            <summary>
+            The VAT amount of the invoice that has to be created.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.InvoiceDate">
+            <summary>
+            The date of the invoice as stated on the invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.MaxStepIndex">
+            <summary>
+            The maximum step that the invoice should be taken to in the credit management
+            process.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.DueDate">
+            <summary>
+            The date on which the invoice should be paid. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.SchemeKey">
+            <summary>
+            The key of the scheme that should be used for the created invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.InvoiceAmount">
+            <summary>
+            The amount of the invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.DisallowedServices">
+            <summary>
+            The services that are not allowed to be used when paying this invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.AllowedServices">
+            <summary>
+            The services that are allowed to be used when paying this invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Code">
+            <summary>
+            The code of the invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Debtor">
+            <summary>
+            The debtor parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Person">
+            <summary>
+            The Person parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Address">
+            <summary>
+            The Person parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Email">
+            <summary>
+            The Email parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreateInvoiceRequest.Phone">
+            <summary>
+            The Phone parameter group.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.IncludedInvoiceKey">
+            <summary>
+            Required = true
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.DossierNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.InstallmentCount">
+            <summary>
+            Required = true
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.InstallmentAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.InitialAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.StartDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.Interval">
+            <summary>
+            Required = true
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.PaymentPlanCostAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.PaymentPlanCostAmountVat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementCreatePaymentPlanRequest.RecipientEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Buckaroo.CreditManagementDataRequest.CreateInvoice(Buckaroo.CreditManagementCreateInvoiceRequest)">
+            <summary>
+            The CreateInvoice function creates a configured transaction with an 
+            CreditManagementCreateInvoiceRequest, that is ready to be executed.
+            </summary>
+            <param name="request">A CreditManagementCreateInvoiceRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.CreditManagementDataRequest.CreateCreditNote(Buckaroo.CreditManagementCreateCreditNoteRequest)">
+            <summary>
+            The CreateCombinedInvoice function creates a configured data request with an 
+            CreditManagementInvoiceRequest, that is ready to be executed.
+            </summary>
+            <param name="request">A CreditManagementCreateCreditNoteRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.CreditManagementDataRequest.AddOrUpdateDebtor(Buckaroo.CreditManagementAddOrUpdateDebtorRequest)">
+            <summary>
+            The AddOrUpdateDebtor function creates a configured data requestwith an CreditManagementAddOrUpdateDebtorRequest,
+            that is ready to be executed.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.CreditManagementDataRequest.CreatePaymentPlan(Buckaroo.CreditManagementCreatePaymentPlanRequest)">
+            <summary>
+            The CreatePaymentPlan function creates a configured data request with an CreditManagementCreatePaymentPlanRequest,
+            that is ready to be executed.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.CreditManagementDataRequest.TerminatePaymentPlan(Buckaroo.CreditManagementCreatePaymentPlanRequest)">
+            <summary>
+            The TerminatePaymentPlan function creates a configured data requestwith an CreditManagementCreatePaymentPlanRequest,
+            that is ready to be executed.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.InvoiceAmountVat">
+            <summary>
+            The VAT amount of the invoice
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.InvoiceDate">
+            <summary>
+            required = true. 
+            The date corresponding to the invoice
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.MaxStepIndex">
+            <summary>
+            The maximum step index that is to be used in the credit management scheme.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.DueDate">
+            <summary>
+            The date that the invoice is due for payment. If not paid, the invoice will be put to the next
+            step in the creditmanagement scheme.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.SchemeKey">
+            <summary>
+            The key of the scheme that is to be used for this invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.InvoiceAmount">
+            <summary>
+            The amount of the invoice that has to be created
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.DisallowedServices">
+            <summary>
+            The services that are not allowed to be used when paying this invoice.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.AllowedServices">
+            <summary>
+            The services that are allowed to be used when paying this invoice
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.Debtor">
+            <summary>
+            Parameter group Debtor
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.Person">
+            <summary>
+            Parameter group Person
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.Address">
+            <summary>
+            Parameter group Address
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.Email">
+            <summary>
+            Parameter group Email
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementInvoiceRequest.Phone">
+            <summary>
+            Parameter group Phone
+            </summary>
+        </member>
+        <member name="P:Buckaroo.CreditManagementTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.CreditManagementTransaction.CreateCombinedInvoice(Buckaroo.CreditManagementInvoiceRequest)">
+            <summary>
+            The CreateCombinedInvoice function creates a configured transaction with an 
+            CreditManagementInvoiceRequest, that is ready to be executed.
+            </summary>
+            <param name="request">A CreditManagementInvoiceRequest</param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.DataRequestServices.ServiceList">
+            <summary>
+            A list of Services.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.DataRequestServices.#ctor">
+            <summary>
+            primary constructor. A new list of services is instantiated.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.FashionchequePayResponse">
+            <summary>
+            A Fashioncheque PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.FashionchequeTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.FashionchequeTransaction.Pay(Buckaroo.FashionchequePayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an FashionchequePayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A FashionchequePayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.IdealProcessingPayRequest">
+            <summary>
+            The idealrequest class, where the issuer of the request is specified.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealProcessingPayRequest.Issuer">
+            <summary>
+            Use constants in BuckarooSdk.Services.Ideal.IdealIssuer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealProcessingTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.IdealProcessingTransaction.Pay(Buckaroo.IdealProcessingPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an IdealProcessingPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealProcessingPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.IdealQrDataRequest.Generate(Buckaroo.IdealQrGenerateRequest)">
+            <summary>
+            The Generate function creates a configured datarequest with an IdealQrGenerateRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealQrGenerateRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.Issuers">
+            <summary>
+            Overview of all iDEAL issuing banks.
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.AbnAmro">
+            <summary>
+            ABN AMRO bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.AsnBank">
+            <summary>
+            ASN bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.IngBank">
+            <summary>
+            ING bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.Knab">
+            <summary>
+            Knab bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.RaboBank">
+            <summary>
+            Rabobank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.RegioBank">
+            <summary>
+            Regiobank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.SnsBank">
+            <summary>
+            SNS bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.TriodosBank">
+            <summary>
+            Triodos bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.VanLanschot">
+            <summary>
+            Van Lanschot bank
+            </summary>
+        </member>
+        <member name="F:Buckaroo.Issuers.Bunq">
+            <summary>
+            Bunq bank
+            </summary>
+        </member>
+        <member name="T:Buckaroo.IdealPayRemainderRequest">
+            <summary>
+            The idealrequest class, where the issuer of the request is specified.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealPayRemainderRequest.Issuer">
+            <summary>
+            Use constants in BuckarooSdk.Services.Ideal.IdealIssuer
+            </summary>
+        </member>
+        <member name="T:Buckaroo.IdealPayRequest">
+            <summary>
+            The idealrequest class, where the issuer of the request is specified.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealPayRequest.Issuer">
+            <summary>
+            Use constants in BuckarooSdk.Services.Ideal.IdealIssuer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealRefundResponse.CustomerAccountName">
+            <summary>
+            The account name of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealRefundResponse.CustomerBic">
+            <summary>
+            The BIC (bank) code of the customer's account, where the refund is meant for.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealRefundResponse.CustomerIban">
+            <summary>
+            The IBAN of the customer's account, where the refund is meant for.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.IdealTransaction">
+            <summary>
+            The CancelTransaction class of payment method type: iDEAL.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.IdealTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.IdealTransaction.Pay(Buckaroo.IdealPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an IdealPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.IdealTransaction.Refund(Buckaroo.IdealRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an IdealRefundRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.IdealTransaction.PayRemainder(Buckaroo.IdealPayRemainderRequest)">
+            <summary>
+            The pay remainder function creates a configured transaction with an IdealPayRemainderRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An IdealPayRemainderRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.MasterCardCaptureRequest">
+            <summary>
+            A Mastercard Capture Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.MasterCardPayRecurrentRequest">
+            <summary>
+            A MasterCard PayRecurrent Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.MasterCardRefundRequest">
+            <summary>
+            A Mastercard Refund Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.MasterCardRefundResponsen">
+            <summary>
+            A Mastercard Refund Response does not have response parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.MasterCardTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.MasterCardTransaction.Pay(Buckaroo.MasterCardPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with a MasterCardPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A MasterCardPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.PayPalPayRecurrentRequest">
+            <summary>
+            A PayPal PayRecurrent Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.PayPalRefundRequest">
+            <summary>
+            A PayPal Refund Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.PayPalRefundResponse">
+            <summary>
+            A PayPal RefundResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPalTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.PayPalTransaction.Pay(Buckaroo.PayPalPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an PayPalPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPalPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.PayPalTransaction.Refund(Buckaroo.PayPalRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an PayPalRefundRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPalRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.PayPalTransaction.PayRecurrent(Buckaroo.PayPalPayRecurrentRequest)">
+            <summary>
+            The payrecurrent function creates a configured transaction with an PayPalPayRecurrentRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPalPayRecurrentRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.PayPalTransaction.PayRemainder(Buckaroo.PayPalPayRemainderRequest)">
+            <summary>
+            The payremainder function creates a configured transaction with an PayPalPayRemainderRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPalPayRemainderRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.PayPalTransaction.ExtraInfo(Buckaroo.PayPalExtraInfoRequest)">
+            <summary>
+            The extrainfo function creates a configured transaction with an PayPalExtraInfoRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPalExtraInfoRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.PayPerEmailPaymentInvitationRequest">
+            <summary>
+            The PayperEmail Payment invitation is a request that has the purpos of sending a payment invitation
+            to a customer. This can be performed by Buckaroo, or a payment link can be returned, in case the
+            mail should be sent by your own system. The payment link is the key element of the PayperEmail and
+            is the link to the Buckaroo Payment Engine.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.CustomerGender">
+            <summary>
+            The gender of the customer, used to properly address the customer in the mail. Possible values are:
+            
+            0 : Unknown 
+            1 : Male 
+            2 : Female
+            9 : Not applicable
+            
+            To be sure that always one of these values are used, the corresponding class with gender constants
+            can be used.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.Attachment">
+            <summary>
+            The file name of a previously uploaded attachment.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.MerchantSendsEmail">
+            <summary>
+            Defines if Buckaroo has to send the payperemail, or that you wish to get only the paylink returned.
+            when true, the paylink is returned in the response, and Buckaroo will not send the email.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.ExpirationDate">
+            <summary>
+            The date you wish to have the PayperEmail expired.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.PaymentMethodsAllowed">
+            <summary>
+            A single or multiple payment methods which the consumer is offered as a choice on the payment page.
+            If no payment methods are defined here, all active payment methods within the merchant account are shown.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.CustomerEmail">
+            <summary>
+            The email address of the customer where the email needs to be send to.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.CustomerFirstName">
+            <summary>
+            The first name of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailPaymentInvitationRequest.CustomerLastName">
+            <summary>
+            The last name of the customer.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.PayPerEmailTransaction">
+            <summary>
+            The CancelTransaction class of payment method type: PayPerMail.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.PayPerEmailTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.PayPerEmailTransaction.PaymentInvitation(Buckaroo.PayPerEmailPaymentInvitationRequest)">
+            <summary>
+            The pay function creates a configured transaction with a PayPerEmailPaymentInvitationRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A PayPerEmailPaymentInvitationRequest</param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.CustomerAccountName">
+            <summary>
+            The account name of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.MandateReference">
+            <summary>
+            The mandate reference number.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.CustomerIban">
+            <summary>
+            The IBAN of the customers account.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.CustomerBic">
+            <summary>
+            The BIC of the customers account.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.CollectDate">
+            <summary>
+            The date on which the Sepa Direct Debit needs to be collected.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayRequest.MandateDate">
+            <summary>
+            The date the mandate has been registered.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.MandateDate">
+            <summary>
+            The date the mandate has been registered
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.DirectDebitType">
+            <summary>
+            The type of direct debit that will be processed.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.CollectDate">
+            <summary>
+            The date the mandate has been registered.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.MandateReference">
+            <summary>
+            The mandate reference number.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.CustomerIban">
+            <summary>
+            The IBAN of the customers account.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitPayResponse.CustomerBic">
+            <summary>
+            The BIC of the customers account.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundRequest.CustomerIban">
+            <summary>
+            The IBAN of the customers account
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundRequest.CustomerBic">
+            <summary>
+            The BIC of the customers account
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundRequest.CustomerAccountName">
+            <summary>
+            The account name of the customer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundResponse.CustomerAccountName">
+            <summary>
+            The account name of the customer
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundResponse.CustomerIban">
+            <summary>
+            The IBAN of the customers account
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitRefundResponse.CustomerBic">
+            <summary>
+            The BIC of the customers account
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SimpleSepaDirectDebitTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.SimpleSepaDirectDebitTransaction.Pay(Buckaroo.SimpleSepaDirectDebitPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an SimpleSepaDirectDebitPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An SimpleSepaDirectDebitPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SimpleSepaDirectDebitTransaction.Refund(Buckaroo.SimpleSepaDirectDebitRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an SimpleSepaDirectDebitRefundRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">An SimpleSepaDirectDebitRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.SofortPayRequest">
+            <summary>
+            A Sofort PayRequest does not have reponse parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.SofortPayResponse">
+            <summary>
+            A Sofort PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.SofortRefundRequest">
+            <summary>
+            A Sofort RefundRequest does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.SofortRefundResponse">
+            <summary>
+            A Sofort RefundResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.SofortTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.SofortTransaction.Pay(Buckaroo.SofortPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an SofortPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A SofortPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.SofortTransaction.Refund(Buckaroo.SofortRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an SofortRefundRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A SofortRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.TransactionServices">
+            <summary>
+            A class that holds a list of services. 
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionServices.ServiceList">
+            <summary>
+            A list of Services.
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransactionServices.#ctor">
+            <summary>
+            primary constructor. A new list of services is instantiated.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.CustomerFirstName">
+            <summary>
+            The first name of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.CustomerLastName">
+            <summary>
+            The last name of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.CustomerGender">
+            <summary>
+            The gender of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.CustomerCountry">
+            <summary>
+            The country of origin of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.SendMail">
+            <summary>
+            States wether an email will be sent to the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayRequest.CustomerEmail">
+            <summary>
+            The email address of the customer. Required if the boolean SendMail == true.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.AccountHolderName">
+            <summary>
+            The name of the account where the transfer is originated from.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.BankAccount">
+            <summary>
+            The back account number of the account where the transfer is originated from.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.Iban">
+            <summary>
+            The IBAN of the customer that performed the transfer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.Bic">
+            <summary>
+            The BIC code of the bank where the payment originated from.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.AccountHolderCountry">
+            <summary>
+            The country of origin of the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.Bankleitzahl">
+            <summary>
+            The bankLeitszahl reference.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferPayResponse.AccountHolderCity">
+            <summary>
+            The city where the accountholder lives in.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransferTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransferTransaction.Pay(Buckaroo.TransferPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with a TransferPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A TransferPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.TransferTransaction.Refund(Buckaroo.TransferRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with a TransferPayRequest, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A TransferPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeRequest.Recurring">
+            <summary>
+            States wether the transaction is recurring
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeRequest.CustomerCode">
+            <summary>
+            The customer code reference.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeResponse.CardExpirationDate">
+            <summary>
+            The expiration date of the card used by the customer.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeResponse.CardEnrolled">
+            <summary>
+            States wether the card is enrolled.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeResponse.CardAuthentication">
+            <summary>
+            The card authentication reference.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VisaAuthorizeResponse.CardNumberEnding">
+            <summary>
+            The last few digits of the card used by the customer.
+            </summary>
+        </member>
+        <member name="T:Buckaroo.VisaCaptureRequest">
+            <summary>
+            A Visa Capture Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.VisaPayRecurrentRequest">
+            <summary>
+            A Visa PayRecurrent Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.VisaRefundRequest">
+            <summary>
+            A Visa Refund Request does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.VisaRefundResponse">
+            <summary>
+            A Visa Refund Response does not have response parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.VVVPayResponse">
+            <summary>
+            A VVV PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.VVVTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.VVVTransaction.Pay(Buckaroo.VVVPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an VVVPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A VVVPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.WebshopGiftcardPayResponse">
+            <summary>
+            A WebshopGiftcard PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.WebshopGiftcardRefundRequest">
+            <summary>
+            A WebshopGiftcard RefundRequest does not have request parameters
+            </summary>
+        </member>
+        <member name="T:Buckaroo.WebshopGiftcardRefundResponse">
+            <summary>
+            A WebshopGiftcard RefundResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.WebshopGiftcardTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.WebshopGiftcardTransaction.Pay(Buckaroo.WebshopGiftcardPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an WebshopGiftcardPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A WebshopGiftcardPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.WebshopGiftcardTransaction.Refund(Buckaroo.WebshopGiftcardRefundRequest)">
+            <summary>
+            The refund function creates a configured transaction with an WebshopGiftcardRefundRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A WebshopGiftcardRefundRequest</param>
+            <returns></returns>
+        </member>
+        <member name="T:Buckaroo.YourGiftPayResponse">
+            <summary>
+            A YourGift PayResponse does not have reponse parameters
+            </summary>
+        </member>
+        <member name="P:Buckaroo.YourGiftTransaction.ConfiguredTransaction">
+            <summary>
+            The configured transaction
+            </summary>
+        </member>
+        <member name="M:Buckaroo.YourGiftTransaction.Pay(Buckaroo.YourGiftPayRequest)">
+            <summary>
+            The pay function creates a configured transaction with an YourGiftPayRequest request, 
+            that is ready to be executed.
+            </summary>
+            <param name="request">A YourGiftPayRequest</param>
+            <returns></returns>
+        </member>
+        <member name="M:Buckaroo.ConfiguredCancelTransaction.Execute">
+            <summary>
+            Execute the request, a post to the Buckaroo Payment Engine is prepared and send.
+            </summary>
+            <returns>General TransactionResponse object is returned</returns>
+        </member>
+        <member name="T:Buckaroo.ConfiguredServiceTransaction">
+            <summary>
+            The transaction that is configured for execution
+            </summary>
+        </member>
+        <member name="M:Buckaroo.ConfiguredServiceTransaction.Execute">
+            <summary>
+            Execute the request, a post to the Buckaroo Payment Engine is prepared and sent.
+            </summary>
+            <returns>General TransactionResponse object is returned</returns>
+        </member>
+        <member name="T:Buckaroo.TransactionRequest">
+            <summary>
+            The actual transaction, that can only be obtained by defining a transaction request.
+            </summary>
+        </member>
+        <member name="P:Buckaroo.TransactionRequest.TransactionBase">
+            <summary>
+            The base transaction info
+            </summary>
+        </member>
+        <member name="M:Buckaroo.TransactionRequest.SetBasicFields(Buckaroo.TransactionBase)">
+            <summary>
+            Setter for the basic fields of the transaction.
+            </summary>
+            <param name="basicFields"></param>
+            <returns> A configured transaction </returns>
+        </member>
+        <member name="M:Buckaroo.TransactionRequest.#ctor(Buckaroo.AuthenticatedRequest)">
+            <summary>
+            Primary constructor
+            </summary>
+            <param name="request"></param>
+        </member>
+    </members>
+</doc>
