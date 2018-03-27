@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AssemblyTitle>Buckaroo</AssemblyTitle>
     <AssemblyName>Buckaroo</AssemblyName>
@@ -17,11 +18,5 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-	<PackageReference Include="protobuf-net" Version="2.3.7" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
-    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.4.1" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.4.1" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.4.0" />
   </ItemGroup>
 </Project>
