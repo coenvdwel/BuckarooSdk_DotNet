@@ -104,14 +104,10 @@ namespace Buckaroo
 
     protected async Task<bool> ValidateResponse(HttpResponseMessage response, string requestMethod, string requestUri)
     {
-      response.Headers.TryGetValues("Authorization", out IEnumerable<string> authorizationResponse);
+      var headers = response.Headers.ToDictionary(x => x.Key, x => x.Value);
+      if (!headers.ContainsKey("Authorization")) return false;
 
-      if (authorizationResponse == null)
-      {
-        return false;
-      }
-
-      var actualHeader = authorizationResponse.ToList().First();
+      var actualHeader = headers["Authorization"].First();
       var actualAuthHeaderValues = actualHeader.Split(':', ' ');
       var nonce = actualAuthHeaderValues[3];
       var unixTimeStamp = actualAuthHeaderValues[4];
